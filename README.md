@@ -6,6 +6,12 @@
 - Sign Up form
 - Form Validation
 - useRef Hook
+- Firebase setup for deployment the project (u can use vercel app also for deployment)
+- Create signup user account using authentication
+- Implement sign in user API
+- Created redux-store with userSlice
+- Implemented signout
+- Update profile
 
 # Features
 
