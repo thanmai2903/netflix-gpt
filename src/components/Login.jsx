@@ -6,6 +6,7 @@ import {
   signInWithEmailAndPassword,
   updateProfile,
 } from "firebase/auth";
+import { BG_URL } from "../utils/constants";
 import { auth } from "../utils/FireBase";
 import { useDispatch } from "react-redux";
 import { addUser } from "../utils/userSlice";
@@ -92,7 +93,7 @@ const Login = () => {
         <div>
           <img
             className="w-full absolute"
-            src="https://cdn.mos.cms.futurecdn.net/rDJegQJaCyGaYysj2g5XWY.jpg"
+            src={BG_URL}
             alt="background-image"
           />
         </div>

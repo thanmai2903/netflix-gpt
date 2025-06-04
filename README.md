@@ -1,11 +1,11 @@
-- create react app
-- configured tailwindcss
+- Create react app
+- Configured tailwindcss
 - Header
-- routing of App
+- Routing of App
 - Login Form
 - Sign Up form
 - Form Validation
-- useRef Hook
+- UseRef Hook
 - Firebase setup for deployment the project (u can use vercel app also for deployment)
 - Create signup user account using authentication
 - Implement sign in user API
@@ -27,10 +27,15 @@
 - Embedded the YouTube video and make it autoplay and mute
 - Tailwind classes to make Main container look awesome
 - Build Secondary Component
-- Build movie List & movie card
+- Build movie List
+- Build movie Card
 - TMDB image CDN URL
 - Made the browse page amazing with Tailwind CSS
-- usePopularMovies Custom hook
+- UsePopularMovies Custom hook
+- GPT Search Page
+- GPT Search Bar
+- Multi-language Feature in our app
+- Integrate GPT APIS(get open key)
 
 # Features
 

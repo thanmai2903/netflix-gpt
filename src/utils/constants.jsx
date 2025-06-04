@@ -8,9 +8,19 @@ export const API_OPTIONS = {
   method: "GET",
   headers: {
     accept: "application/json",
-    Authorization:
-      "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI1ODJmN2YxZDdkZWNhNGM5MjEzODRiMzBlODI2MGE1OCIsIm5iZiI6MTc0ODg3MzMxMi41NCwic3ViIjoiNjgzZGIwNjAwNTM2MTlhN2FkZmRiNTNmIiwic2NvcGVzIjpbImFwaV9yZWFkIl0sInZlcnNpb24iOjF9.x-lXh_cWd2JmLmmazfvehO4wkJNhCYD_fwIoBE4ajyE",
+    Authorization: "Bearer" + process.env.REACT_APP_TMDB_KEY,
   },
 };
-
+export const BG_URL =
+  "https://cdn.mos.cms.futurecdn.net/rDJegQJaCyGaYysj2g5XWY.jpg";
 export const IMG_CDN_URL = "https://image.tmdb.org/t/p/w500/";
+
+export const SUPPORTED_LANGUAGES = [
+  { identifier: "en", name: "English" },
+  { identifier: "hindi", name: "Hindi" },
+  { identifier: "spanish", name: "Spanish" },
+  { identifier: "telugu", name: "Telugu" },
+  { identifier: "tamil", name: "Tamil" },
+];
+
+export const OPENAI_KEY = process.env.REACT_APP_OPENAI_KEY;

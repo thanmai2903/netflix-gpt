@@ -4,15 +4,18 @@ import { auth } from "../utils/FireBase";
 import { useSelector } from "react-redux";
 import { onAuthStateChanged } from "firebase/auth";
 import { useEffect } from "react";
-import { LOGO } from "../utils/constants";
+import { LOGO, SUPPORTED_LANGUAGES } from "../utils/constants";
 import { addUser, removeUser } from "../utils/userSlice";
 import { useDispatch } from "react-redux";
 import { USER_AVATAR } from "../utils/constants";
+import { toggleGptSearchView } from "../utils/gptSlice";
+import { changeLanguage } from "../utils/configSLice";
 const Header = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const user = useSelector((store) => store.user);
+  const showGptSearch = useSelector((store) => store.gpt.showGptSearch);
   const handleSignOut = () => {
     signOut(auth)
       .then(() => {
@@ -47,6 +50,16 @@ const Header = () => {
     //unsubscribe when component unmounts
     return () => unsubscribe();
   }, []);
+
+  const handleGptSearchClick = () => {
+    //Toggle GPT Search
+    dispatch(toggleGptSearchView());
+  };
+
+  const handleLanguageChange = (e) => {
+    dispatch(changeLanguage(e.target.value));
+  };
+
   return (
     <>
       <div className="absolute px-6 py-2 bg-gradient-to-b flex flex-col md:flex-row justify-between from-black z-10 w-screen">
@@ -54,10 +67,33 @@ const Header = () => {
 
         {user && (
           <div className="flex p-2">
-            <img className="w-11 h-11 pt-1 rounded-sm" src={USER_AVATAR} />
+            {showGptSearch && (
+              <select
+                className="rounded-xs  text-white px-3 m-2 bg-gray-900"
+                onChange={handleLanguageChange}
+              >
+                {SUPPORTED_LANGUAGES.map((lang) => (
+                  <option key={lang.identifier} value={lang.identifier}>
+                    {lang.name}
+                  </option>
+                ))}
+                {/* <option value="en">English</option>
+              <option value="hindi">Hindi</option>
+              <option value="spanish">Spanish</option>
+              <option value="telugu">Telugu</option>
+              <option value="tamil">Tamil</option>*/}
+              </select>
+            )}
+            <button
+              className="py-2 px-4 mb-5 bg-purple-800 text-white rounded-lg mx-4 my-2"
+              onClick={handleGptSearchClick}
+            >
+              {showGptSearch ? "Homepage" : "GPT Search"}
+            </button>
+            <img className="w-11 h-11 mt-1 rounded-sm" src={USER_AVATAR} />
             <button
               onClick={handleSignOut}
-              className="pl-4 mb-3 cursor-pointer text-white font-bold"
+              className="pl-4 cursor-pointer mb-3 text-white font-bold"
             >
               Sign Out
             </button>
